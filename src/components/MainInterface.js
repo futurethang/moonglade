@@ -7,7 +7,7 @@ const characters = [
     name: "Lady Victoria Ashworth",
     role: "The Wealthy Widow",
     backstory: "Recently inherited a vast fortune after her husband's mysterious death. Known for her lavish parties and sharp tongue. Has many secrets hidden behind her charming smile.",
-    emoji: "👑",
+    image: "/images/adrienne1bw.jpg",
     canVoteFor: true
   },
   {
@@ -15,7 +15,7 @@ const characters = [
     name: "Dr. Edmund Blackwell",
     role: "The Family Doctor",
     backstory: "The trusted family physician with access to deadly substances. Has been treating the Ashworth family for years and knows all their medical secrets.",
-    emoji: "💊",
+    image: "/images/philbw.jpg",
     canVoteFor: true
   },
   {
@@ -23,7 +23,7 @@ const characters = [
     name: "Margaret Sterling",
     role: "The Loyal Maid",
     backstory: "Has served the family for over 20 years. Sees everything, hears everything, but rarely speaks. Her silence might be hiding deadly knowledge.",
-    emoji: "🕯️",
+    image: "/images/meredith3bw.jpg",
     canVoteFor: true
   },
   {
@@ -31,7 +31,7 @@ const characters = [
     name: "Charles Worthington",
     role: "The Business Partner",
     backstory: "Victoria's late husband's business associate with mounting debts. Desperately needs money and has been making increasingly dangerous deals.",
-    emoji: "💼",
+    image: "/images/garetbw.jpg",
     canVoteFor: true
   },
   {
@@ -39,7 +39,7 @@ const characters = [
     name: "Ruby Diamond",
     role: "The Cabaret Singer",
     backstory: "The mysterious entertainer with connections to the underground. Known for her sultry voice and even more sultry secrets about the city's elite.",
-    emoji: "🎤",
+    image: "/images/tessa2bw.jpg",
     canVoteFor: true
   },
   {
@@ -47,7 +47,7 @@ const characters = [
     name: "Detective Harrison",
     role: "The Investigating Officer",
     backstory: "The hard-boiled detective assigned to the case. Has his own dark past and may not be as honest as he appears. Could he be covering up his own crimes?",
-    emoji: "🔍",
+    image: "/images/mikey_emily3bw.jpg",
     canVoteFor: false
   },
   {
@@ -55,7 +55,7 @@ const characters = [
     name: "Lord Reginald Ashworth",
     role: "The Deceased",
     backstory: "The late patriarch whose mysterious death started it all. Found in the library with signs of poisoning. Even in death, his secrets continue to haunt Moonglade Manor.",
-    emoji: "⚰️",
+    image: "/images/JoBW.jpg",
     canVoteFor: false
   },
   {
@@ -63,7 +63,7 @@ const characters = [
     name: "Inspector Collins",
     role: "The Lead Investigator",
     backstory: "Scotland Yard's finest, called in to solve the case. Known for his methodical approach and keen eye for detail. Will he uncover the truth, or become the next victim?",
-    emoji: "🔍",
+    image: "/images/Amy1bw.jpg",
     canVoteFor: false
   }
 ];
@@ -142,7 +142,7 @@ const MainInterface = ({ hasVoted, onVoteSubmitted }) => {
         {characters.map(character => (
           <div key={character.id} className={`character-card ${!character.canVoteFor ? 'non-votable' : ''}`}>
             <div className="character-image">
-              {character.emoji}
+              <img src={character.image} alt={character.name} />
             </div>
             <h3>{character.name}</h3>
             <div className="role">{character.role}</div>
@@ -178,7 +178,7 @@ const MainInterface = ({ hasVoted, onVoteSubmitted }) => {
           </div>
           <div className="creator-content">
             <div className="creator-image">
-              🎭
+              <img src="/images/jill-bw.jpg" alt="Jill Maio" />
             </div>
             <div className="creator-info">
               <h3>Jill Maio</h3>
