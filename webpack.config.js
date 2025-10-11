@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -24,6 +25,13 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
+        }
       }
     ]
   },
@@ -33,6 +41,14 @@ module.exports = {
     }),
     new Dotenv({
       systemvars: true
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'public/images',
+          to: 'images'
+        }
+      ]
     })
   ],
   devServer: {

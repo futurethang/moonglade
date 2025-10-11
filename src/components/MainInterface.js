@@ -85,6 +85,14 @@ const MainInterface = ({ hasVoted, onVoteSubmitted }) => {
       // Generate a unique voter ID
       const voterId = `${navigator.userAgent.slice(-10)}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
       
+      // Get current time in Pacific timezone
+      const pacificTime = new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
+      const pacificDate = new Date(pacificTime);
+      const pacificHour = pacificDate.getHours();
+      
+      // Determine show time based on Pacific timezone (before 6 PM = 4PM show)
+      const showTime = pacificHour < 18 ? '4PM' : '8PM';
+      
       const { error: insertError } = await supabase
         .from('votes')
         .insert([
@@ -92,7 +100,8 @@ const MainInterface = ({ hasVoted, onVoteSubmitted }) => {
             character_id: character.id,
             character_name: character.name,
             voter_id: voterId,
-            show_time: new Date().getHours() < 18 ? '4PM' : '8PM',
+            show_time: showTime,
+            pacific_timestamp: pacificTime,
             created_at: new Date().toISOString()
           }
         ]);
