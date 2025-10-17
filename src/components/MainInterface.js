@@ -122,7 +122,7 @@ const MainInterface = ({ hasVoted, onVoteSubmitted }) => {
       const currentHour = new Date().getHours();
       
       // Determine show time based on current time (before 6 PM = 4PM show)
-      const showTime = currentHour < 18 ? '4PM' : '8PM';
+      const showTime = currentHour < 20 ? '4PM' : '8PM';
       
       const { error: insertError } = await supabase
         .from('votes')
