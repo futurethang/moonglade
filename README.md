@@ -98,7 +98,7 @@ Visit `http://localhost:3000` to test the application.
 
 ### For Show MC/Admin
 1. Click "Admin" button
-2. Enter password: `mysteryshow2024` (you can change this in `App.js`)
+2. Enter password: `gazelle1` (you can change this in `App.js`)
 3. View vote tallies for each show (4PM/8PM)
 4. Clear votes between shows or reset everything
 

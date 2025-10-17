@@ -28,7 +28,7 @@ const App = () => {
   };
 
   const handleAdminLogin = (password) => {
-    if (password === 'mysteryshow2024') {
+    if (password === 'gazelle1') {
       setIsAdmin(true);
       sessionStorage.setItem('adminAccess', 'true');
       setCurrentView('admin');
